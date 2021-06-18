@@ -1,0 +1,9 @@
+/* pages/other/other.wxss */
+@import '/template/myTemplate/myTemplate.wxss';
+
+/*导入的样式的名字会层叠所以这里要改名字*/
+
+.otherTitle{
+    color: red;
+    font-size: 55rpx;
+}

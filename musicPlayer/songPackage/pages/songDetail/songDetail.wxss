@@ -1,0 +1,164 @@
+/*独立分包后，和主页的关联不大就跳转的关系，所以用不了全局的资源，要使用独立的资源，并且全局的高度对该页面无效，要重新设置否则，看不到图标，使用绝对定位脱离文档流，高度由内容撑开*/
+@import "/static/iconfont/iconfont.wxss";
+page {
+    height: 100%;
+}
+.songDetailContainer{
+    height: 100%;
+    background: rgb(0,0,0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*底座*/
+.circle{
+    position: relative;
+    z-index: 100;
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    background: #fff;
+    margin: 10rpx 0;
+}
+
+/*摇杆区域*/
+.needle{
+    position: relative;
+    z-index: 99;
+    top: -40rpx;
+    left: 60rpx;
+    height: 274rpx;
+    width: 192rpx;
+    /*改变旋转的中心点的位置，默认为宽50% 高50% 这里改为左上角向右偏移40rpx*/
+    transform-origin: 40rpx 0;
+    transition: transform 1s;
+    /*逆时针旋转20度*/
+    transform: rotate(-20deg);
+}
+.needleRotate{
+    /*不旋转*/
+    transform: rotate(0deg);
+}
+
+/*磁盘区域*/
+.discContainer{
+    position: relative;
+    top: -170rpx;
+    width: 598rpx;
+    height: 598rpx;
+}
+
+.discAnimation{
+    /*设置磁盘的旋转动画效果，infinite 一直循环旋转*/
+    animation: disc 4s linear infinite;
+    /*旋转动画延迟1秒,等摇杆落下后磁盘在旋转*/
+    animation-delay: 1s;
+}
+
+/*
+@keyframes:设置动画帧
+ 1）form to
+   - 设置简单的动画，一般就只有起始帧和结束帧
+ 2）百分比
+   - 设置复杂的动画，可以设置整个过程
+*/
+@keyframes disc {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+.disc{
+    width: 100%;
+    height: 100%;
+}
+
+/*歌曲图片*/
+.musicImg{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    width: 370rpx;
+    height: 370rpx;
+    border-radius: 50%;
+}
+
+/* 歌词显示 */
+.scrollLrc {
+    position: absolute;
+    bottom: 280rpx;
+    width: 640rpx;
+    height: 120rpx;
+    line-height: 120rpx;
+    text-align: center;
+}
+
+
+/*进度条控制区域*/
+.progressControl {
+    position: absolute;
+    display: flex;
+    bottom: 250rpx;
+    width: 640rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+}
+
+.barControl {
+    position: relative;
+    width: 450rpx;
+    height: 4rpx;
+    background: rgba(0, 0, 0 , 0.4);
+    margin: auto;
+}
+/*实时进度条*/
+.audio-currentTime-Bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 4rpx;
+    background: red;
+}
+
+/*小圆球*/
+.audio-circle{
+    position: absolute;
+    right: -12rpx;
+    top: -4rpx;
+    width: 12rpx;
+    height: 12rpx;
+    border-radius: 50%;
+    background: #fff;
+
+}
+
+/*底部音乐控制区域*/
+.musicControl{
+    position: absolute;
+    bottom: 40rpx;
+    left: 0;
+    border-top: 1rpx solid #fff;
+    width: 100%;
+    display: flex;
+}
+
+.musicControl text{
+    width: 20%;
+    height: 200rpx;
+    line-height: 200rpx;
+    text-align: center;
+    font-size: 50rpx;
+    color: #fff;
+}
+
+.musicControl .big{
+    font-size: 90rpx;
+}

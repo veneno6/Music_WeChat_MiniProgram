@@ -1,0 +1,8 @@
+<!--使用自定义模板要导入该模板，并且使用样式也要导入样式-->
+<import src="/template/myTemplate/myTemplate.wxml"/>
+
+<view class="otherTitle">使用自定义的模板</view>
+<template is="myItem" data="{{...person}}"/>
+
+<view class="otherTitle">获取用户标识OpenId</view>
+<button bindtap="handleGetOpenId">获取用户Id</button>

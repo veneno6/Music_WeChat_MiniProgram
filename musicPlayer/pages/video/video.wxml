@@ -1,0 +1,73 @@
+<view class="videoContainer">
+    <!--头部区域-->
+    <view class="header">
+        <image src="/static/images/video/video.jpg"></image>
+        <view class="search" bindtap="toSearch">搜索音乐</view>
+        <image src="/static/images/logo.png"></image>
+    </view>
+
+    <!--导航区域-->
+    <!--scorll-into-view 设置点击的导航标签到第一个，并设置了animation动画效果，id要以不是数字开始-->
+    <scroll-view
+            scroll-x
+            enable-flex
+            class="navScroll"
+            scroll-into-view="{{'scroll' + navId}}"
+            scroll-with-animation
+    >
+        <view class="navItem" id="{{'scroll' + item.id}}" wx:for="{{videoGroupList}}" wx:key="id">
+            <view class="navContent {{item.id === navId?'active':''}}" bindtap="changeNav" data-id="{{item.id}}" id="{{item.id}}">
+                {{item.name}}
+            </view>
+        </view>
+    </scroll-view>
+
+    <!--视屏列表区域-->
+    <scroll-view
+            scroll-y
+            class="videoScroll"
+            refresher-enabled
+            bindrefresherrefresh="handleRefresh"
+            refresher-triggered="{{isTriggered}}"
+            bindscrolltolower="handleToLower"
+    >
+        <view class="videoItem" wx:for="{{videoList}}" wx:key="id">
+            <video
+                    src="{{item.data.urlInfo.url}}"
+                    bindplay="handlePlay"
+                    id="{{item.data.vid}}"
+                    wx:if="{{videoId === item.data.vid}}"
+                    class="common"
+                    object-fit="cover"
+                    bindtimeupdate="handleTimeUpdate"
+                    bindended="handleEnd"
+            >
+            </video>
+
+            <!--性能优化使用图片代替video，每次只显示一个video,通过使用wx:if wx:else 和id来区别点击的图片来显示不同的图片和视频
+            使用性能优化后就每次播放视频就只有一个视频，就可以解决多个视频播放的问题-->
+            <image class="common" wx:else bindtap="handlePlay" id="{{item.data.vid}}" src="{{item.data.coverUrl}}"></image>
+
+            <!--视频列表脚部区域-->
+            <view class="footer">
+                <image class="avatar" src="{{item.data.creator.avatarUrl}}"></image>
+                <text class="nickName">{{item.data.creator.nickname}}</text>
+                <view class="comments_praised">
+                    <text class="item">
+                        <text class="iconfont icon-aixin"></text>
+                        <text class="count">{{item.data.praisedCount}}</text>
+                    </text>
+                    <text class="item">
+                        <text class="iconfont icon-pinglun"></text>
+                        <text class="count">{{item.data.commentCount}}</text>
+                    </text>
+                    <button open-type="share" class="item btn" open-type="share">
+                        <text class="iconfont icon-gengduo"></text>
+                    </button>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+
+
+</view>

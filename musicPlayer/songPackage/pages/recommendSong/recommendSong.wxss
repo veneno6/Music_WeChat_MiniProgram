@@ -1,0 +1,97 @@
+/*独立分包后，和主页的关联不大就跳转的关系，所以用不了全局的资源，要使用独立的资源，并且全局的高度对该页面无效，要重新设置否则，看不到图标，使用绝对定位脱离文档流，高度由内容撑开*/
+@import "/static/iconfont/iconfont.wxss";
+page {
+    height: 100%;
+}
+/*头部图片区域*/
+.recommendSongContainer .header{
+    width: 100%;
+    height: 300rpx;
+    position: relative;
+}
+
+.recommendSongContainer .header image{
+    width: 100%;
+    height: 100%;
+}
+
+.recommendSongContainer .header .date{
+    /*定位*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -150rpx;
+    margin-top: -50rpx;
+
+    width: 300rpx;
+    height: 100rpx;
+    text-align: center;
+    line-height: 100rpx;
+    color: #fff;
+}
+.recommendSongContainer .header .date{
+    font-size: 38rpx;
+}
+
+/*内容列表区域*/
+.listScroll{
+    /*为scroll设置高度，动态计算高度适应不同的机型，以此来固定垂直滑动时，列表的头部区域固定不会跟随滑动*/
+    height: calc(100vh - 380rpx);
+}
+.listContainer{
+    position: relative;
+    top: -20rpx;
+    padding: 0 20rpx;
+    background: #fff;
+    border-radius: 30rpx;
+}
+
+.listHeader{
+    height: 80rpx;
+    line-height: 80rpx;
+}
+
+.listHeader .changeMore{
+    float: right;
+}
+
+/*列表内容区域*/
+.scrollItem{
+    position: relative;
+    display: flex;
+}
+
+.scrollItem image{
+    width: 80rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    border-radius: 8rpx;
+    margin-bottom: 20rpx;
+}
+
+.musicInfo{
+    /*父元素为flex子元素变为块级元素*/
+    display: flex;
+    /*变为垂直布局*/
+    flex-direction: column;
+    margin-left: 20rpx;
+}
+
+.musicInfo text{
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 24rpx;
+    max-width: 500rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.scrollItem .iconfont{
+    position: absolute;
+    right: 0;
+    width: 80rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: right;
+}

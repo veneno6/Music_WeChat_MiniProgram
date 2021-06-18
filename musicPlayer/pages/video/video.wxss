@@ -1,0 +1,135 @@
+/*视频页面的头部区域*/
+.videoContainer .header{
+    display: flex;
+    padding: 10rpx;
+}
+.videoContainer .header image{
+    width: 60rpx;
+    height: 60rpx;
+}
+.videoContainer .search{
+    border: 1rpx solid #eee;
+    /**
+    flex-grow：可拉伸 flex-shrink：可压缩 flex-basis：当前元素的宽度
+    flex:默认值 flex-grow：0 flex-shrink：1 flex-basis：auto
+    flex:1 flex-grow：1 flex-shrink：1 flex-basis：0%
+    flex:auto flex-grow：1 flex-shrink：1 flex-basis：auto
+    flex：1 会导致父元素的宽度为100%，并根据屏幕响应变大和变小
+     */
+    flex: 1;
+    margin: 0 20rpx;
+    font-size: 26rpx;
+    text-align: center;
+    line-height: 60rpx;
+    color: #d43c33;
+}
+
+/*导航区域*/
+.navScroll{
+    display: flex;
+    /*不换行*/
+    white-space: nowrap;
+    /*scroll-view的高度为默认为内容的高度，不设置高度会将其他元素下挤*/
+    height: 60rpx;
+}
+
+.navScroll .navItem{
+    padding: 0rpx 30rpx;
+    font-size: 28rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+}
+
+.navItem .navContent{
+    height: 60rpx;
+    /*设置盒模型总的高为60rpx 加上边框，总高为60rpx,所以要盒模型*/
+    box-sizing: border-box;
+}
+
+.navItem .active{
+    border-bottom: 1rpx solid #d34e33;
+}
+
+/*视频列表*/
+.videoScroll{
+    margin-top: 10rpx;
+    /*calc()：css3属性可以动态计算宽高，适配不同的机型，运算符两边必须加空格否则计算会失效，视口高度减去，tabbar(微信默认已经减去不用减)，导航口的高度自己计算*/
+    /*视口单位：vh vw 1vh = 1% 的视口高度 1vw = 1% 的视口宽度*/
+    height: calc(100vh - 152rpx);
+    /*height: calc(100vh - 100rpx); 测试页面下拉触底事件*/
+}
+.videoItem{
+    padding: 0 3%;
+}
+/*.videoItem video{*/
+/*    width: 100%;*/
+/*    height: 360rpx;*/
+/*    border-radius: 10rpx;*/
+/*}*/
+
+.videoItem .common {
+    width: 100%;
+    height: 360rpx;
+    border-radius: 10rpx;
+}
+
+
+.videoItem .content {
+    font-size: 26rpx;
+    height:80rpx;
+    line-height: 80rpx;
+    max-width: 500rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 视频列表脚部数据 */
+.footer {
+    border-top: 1rpx solid #eee;
+    padding: 20rpx 0;
+}
+.footer .avatar {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.footer  .nickName {
+    font-size: 26rpx;
+    vertical-align: middle;
+    margin-left: 20rpx;
+}
+
+.footer .comments_praised {
+    float: right;
+}
+
+.comments_praised .btn {
+    display: inline;
+    padding: 0;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.comments_praised .btn:after {
+    border: none;
+}
+
+.comments_praised .item {
+    margin-left: 50rpx;
+    position: relative;
+}
+
+.comments_praised .item .count {
+    position: absolute;
+    top: -20rpx;
+    left: -6rpx;
+    font-size: 20rpx;
+}
+
+
+
+
+
