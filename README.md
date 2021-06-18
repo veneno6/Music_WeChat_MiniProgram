@@ -1,39 +1,76 @@
 # Music微信小程序云音乐
 
 #### 介绍
-{**以下是 Gitee 平台说明，您可以替换此简介**
-Gitee 是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用 Gitee 实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+基于网易云真实接口的微信小程序音乐播放器
 
 #### 软件架构
-软件架构说明
+
+- Node.js作为后台服务的接口
+- ES语法
+- promise对象进行异步网络请求
+- moment.js日期时间格式化
+- pubsub.js消息的发布和订阅，进行不页面间的数据传递
 
 
 #### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1. 下载解压或克隆项目
 
-#### 使用说明
+2. 进入music_server 目录，在地址栏输入cmd，进入控制台
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+   ![image-20210618222107015](images/image-20210618222107015.png)
 
-#### 参与贡献
+   ![image-20210618222128949](images/image-20210618222128949.png)
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+   
 
+3. 控制台输入`npm start`启动服务，可能会提示`nodemon`不是内外部程序，则通过`npm install -g nodemon`解决
 
-#### 特技
+   ![image-20210618222324398](images/image-20210618222324398.png)
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+   
+
+4. 微信开发者工具打开musicPlayer，并进行如下设置，之后就可以编译运行了
+
+   ![image-20210618222754038](images/image-20210618222754038.png)
+
+#### 项目截图
+
+1. 主页
+
+   ![image-20210618223040836](images/image-20210618223040836.png)
+
+2. 每日推荐页面
+
+   ![image-20210618223133882](images/image-20210618223133882.png)
+
+3. 音乐播放及歌词显示页面
+
+   ![image-20210618223258904](images/image-20210618223258904.png)
+
+4. 视频页
+
+   ![image-20210618223415574](images/image-20210618223415574.png)
+
+   ![image-20210618223911954](images/image-20210618223911954.png)
+
+5. 搜索页
+
+   ![image-20210618223457642](images/image-20210618223457642.png)
+
+   ![image-20210618223540919](images/image-20210618223540919.png)
+
+6.  个人页面
+
+   ![image-20210618223646241](images/image-20210618223646241.png)
+
+7.  登录页面
+
+   ![image-20210618223708229](images/image-20210618223708229.png)
+
+8.  登录后页面
+
+   ![image-20210618223757026](images/image-20210618223757026.png)
+
+   
+
